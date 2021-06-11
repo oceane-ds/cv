@@ -1,0 +1,290 @@
+<!DOCTYPE html>
+<html lang="fr">
+
+<head>
+    <meta charset="utf-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>CV</title>
+
+    <link rel="stylesheet" href="css/style.css">
+    <link rel="stylesheet" href="css/eric.css">
+
+</head>
+
+<body>
+    <div id="cv">
+        <div v-for="projet in projets">
+            <pre>{{projet}}</pre>
+        </div>
+
+
+
+        <header id="en-tete">
+
+            <section id="text-header">
+
+                <h1 class="titre1">Hello, i'm Daunas Océane </h1>
+                <h2 class="titre2">Web Designer</h2>
+                <a href="images/DAUNAS%20OCEANE.pdf">
+                    <button class="bouton">Télécharger mon CV</button></a>
+
+
+
+            </section>
+
+            <section id="header-photo">
+
+                <img id="image1" src="images/IMG_1825.JPG" alt="photo me représentant en noir et blanc">
+
+            </section>
+
+
+
+        </header>
+
+
+        <section id="contact">
+
+
+            <a href="tel:+33627331657">
+                <img src="images/phone-call.svg" atl="icone mail">
+            </a>
+
+            <a href="mailto:daunas.oceanepro@gmail.com"><img src="images/gmail.svg" alt="logo mail"></a>
+
+            <a href="https://oceaneds.com/"><img src="images/search-engine.svg" atl="icone site web"></a>
+
+
+            <a href="https://www.linkedin.com/in/daunas-oceane/"><img src="images/linkedin.svg" atl="logo linkedin"></a>
+
+
+        </section>
+
+        <section id="formation">
+
+            <div class="titre">
+                <h2 id="titre-logiciel">Formation</h2>
+                <div class="sepa">
+                    <hr>
+                    <img id="separateur" src="images/computer.svg" alt="icone d'un ordinateur">
+                    <hr>
+                </div>
+            </div>
+
+
+            <div id="bloc-formation">
+
+
+                <div id="image">
+
+                    <img src="images/vasily-koloda-8CqDvPuo_kI-unsplash.jpg" alt="photo représentant une remise de diplome">
+
+                </div>
+
+                <div id="text">
+                    <div v-for="formation in formations">
+                        <div class="comp">
+                            <div class="forma">
+
+                                <img id="asterix" src="images/medical.svg" alt="licone asterix">
+                                <p>{{formation.description}}</p>
+                            </div>
+                        </div>
+
+                    </div>
+                </div>
+            </div>
+
+        </section>
+
+        <section id="competence" v-if="competences.length > 0">
+
+            <div class="titre">
+                <h2 id="titre-logiciel">Compétences</h2>
+                <div class="sepa">
+                    <hr>
+                    <img id="separateur" src="images/computer.svg" alt="icone d'un ordinateur">
+                    <hr>
+                </div>
+            </div>
+
+            <div id="bloc-competence">
+
+                <div id="text-competence">
+                    <div v-for="competence in competences">
+                        <div class="comp">
+
+                            <img id="asterix" src="images/medical.svg" alt="licone asterix">
+                            <h3>{{competence.titre}}</h3>
+                        </div>
+
+                        <p>{{competence.description}}</p>
+
+                    </div>
+
+                </div>
+
+            </div>
+
+
+        </section>
+
+        <section id="logiciel">
+
+            <div class="titre">
+                <h2 id="titre-logiciel">Logiciel</h2>
+                <div class="sepa">
+                    <hr>
+                    <img id="separateur" src="images/computer.svg" alt="icone d'un ordinateur">
+                    <hr>
+                </div>
+            </div>
+
+
+            <div id="bloc-logiciel">
+                <div v-for="logiciel in logiciels">
+                    <img class="icone-logiciel" :src="logiciel.image" :alt="logiciel.alt">
+
+
+                </div>
+            </div>
+
+        </section>
+
+        <section id="experience">
+
+            <div class="titre">
+                <h2>Expérience</h2>
+                <div class="sepa">
+                    <hr>
+                    <img id="separateur" src="images/computer.svg" alt="icone d'un ordinateur">
+                    <hr>
+                </div>
+            </div>
+
+            <div id="bloc-exp">
+
+                <div id="exp">
+
+                    <div class="droit">
+
+                        <img id="arinfo" src="images/logo-arinfo.png" alt="logo arinfo">
+                        <p>Réalisation de wireframe, maquettage de site web, création de logos, animation, site web HTML, CSS, Prestashop et Wordpress, emailing, bannière et web-marketing. </p>
+
+
+                    </div>
+
+                    <div class="droit">
+
+                        <img id="aperonantes" src="images/logo-final-noir.png" alt="logo apero nantes express">
+                        <p>Réalisation de la charte graphique du site, du logo, création du site via Wordpress et Woocommerce. SEO. Responsable des réseaux sociaux et de leurs contenus. </p>
+
+
+
+                    </div>
+
+
+
+                </div>
+
+
+            </div>
+
+        </section>
+
+    </div>
+    <script src="https://unpkg.com/axios/dist/axios.min.js"></script>
+    <script src="https://cdn.jsdelivr.net/npm/vue/dist/vue.js"></script>
+
+    <script>
+        new Vue({
+            el: "#cv",
+            data: {
+                logiciels: [{
+                        image: "images/experience.svg",
+                        alt: "icone adobe xd"
+
+                    },
+                    {
+                        image: "images/illustrator.svg",
+                        alt: "icone adobe illustrator"
+
+                    },
+                    {
+                        image: "images/indesign.svg",
+                        alt: "icone adobe indesign"
+
+                    },
+                    {
+                        image: "images/photoshop.svg",
+                        alt: "icone adobe photoshop"
+
+                    },
+                    {
+                        image: "images/sendinblue.png",
+                        alt: "icone sendiblue"
+
+                    },
+                    {
+                        image: "images/html.svg",
+                        alt: "icone html5"
+
+                    },
+                    {
+                        image: "images/css-3.svg",
+                        alt: "icone css3"
+
+                    },
+                    {
+                        image: "images/woocommerce.png",
+                        alt: "icone woocommerce"
+
+                    },
+                    {
+                        image: "images/wordpress.svg",
+                        alt: "icone wordpress"
+
+                    }
+                ],
+                competences: [{
+                        titre: "Élaborer le design graphique d’un outil de communication numérique :",
+                        description: "Concevoir un site ou une application Web ( HTML 5, CSS 3, Javascript et PHP ), Réalisation d’illustrations, de graphismes, de visuels, de maquettes, d’interfaces et d’animations pour différents supports de diffusion."
+                    },
+                    {
+                        titre: "Réalisation d’un outil de communication numérique :",
+                        description: "Intégrer des pages Web en tenant compte des standards, du référencement, de l’accessibilité et de l’ergonomie."
+                    },
+                    {
+                        titre: "Contribuer à la gestion et au suivi d’un projet de communication numérique :",
+                        description: "Assurer une veille technique et concurrentielle, contribuer à l’élaboration d’un cahier des charges pour différents types de sites et réaliser des outils de communication ou de promotion."
+                    }
+                ],
+
+                formations: [{
+                        description: "Bachelor 3 Web Designer MyDigitalSchool, 2020-2021"
+                    },
+                    {
+                        description: "Titre professionnel Designer Web Arinfo, 2019-2020"
+                    },
+                    {
+
+                        description: "Licence 1 Psychologie UFR Poitiers, 2015-2016"
+                    },
+                    {
+
+                        description: "Baccalauréat ST2S Lycée Aliénor d'Aquitaine, 2014-2015"
+                    }
+                ],
+
+
+
+            },
+            created: function() {
+
+            },
+            methods: {
+
+            },
+        });
+    </script>
+</body></html>
